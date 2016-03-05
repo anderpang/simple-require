@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <meta name="author" content="ander" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+  <title> Simple-require </title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/simple-require.js" data-main="../js/main"></script>
+ </head>
+ <body>
+  <div class="container">
+     <h1>Simple-require.js</h1>
+	 <br /><br /><br />
+	 <p class="t_c"><button id="testBtn" style="width:10em;height:4em;">点击加载个模块</button></p>
+	 <h4>在其它路径测试同样代码</h4>
+	 <p>
+	  唯一改变的只是引入的simple-require.js路径，<br />
+	 &lt;script src="js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;<br />
+	 改为<br />
+	 &lt;script src="../js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;<br />
+	 <a href="other-path/test.html">在其它路径测试</a>
+	 </p>
+  </div>
+ </body>
+</html>
