@@ -12,7 +12,7 @@ Simple-require是一个简单易用的javascript模块按需加载程序。兼�
 
 ## 使用
 
-<script src="js/simple-require.js" data-main="../js/main"></script>
+<script src="js/simple-require.js" data-main="./main"></script>
 引用simple-require.js，绑定data-main即可
 
 ## 配置简单
@@ -41,5 +41,5 @@ require.config({
 	 
 ## 说明
 
-以simple-require.js所在目录为根目录，从而解决了javascript模块中目录引用出错的问题。（无需配置根目录）。
+**以simple-require.js所在目录为根目录来引用模块**，从而解决经常遇到的javascript模块在不同目录的html文件引用中路径不一样的尴尬。（即：无需配置根目录，从simple-require.js所在位置出发即可）。
 
