@@ -8,14 +8,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
   <title> Simple-require </title>
   <link rel="stylesheet" href="../css/style.css" />
-  <script src="../js/simple-require.js" data-main="../js/main"></script>
+  <script src="../js/simple-require.js" data-main="main"></script>
  </head>
  <body>
   <div class="container">
      <h1>Simple-require.js</h1>
 	 <a href="../index.html">返回首页</a>
 	 <br /><br />
-     <pre>&lt;script src="../js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;</pre>
+	 刚才文件路径: 根目录/test.html<br />
+	 现在文件路径：根目录/other-path/test.html<br />
+	 两文件的javascript代码一模一样。<br />
+	 只改变了html中simple-require.js的引用路径：
+     <pre>&lt;script src="../js/simple-require.js" data-main="main"&gt;&lt;/script&gt;</pre>
 	 <p class="t_c"><button id="testBtn" style="width:10em;height:4em;">点击加载个模块</button></p>
   </div>
  </body>

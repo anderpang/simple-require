@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
   <title> Simple-require </title>
   <link rel="stylesheet" href="css/style.css" />
-  <script src="js/simple-require.js" data-main="../js/main"></script>
+  <script src="js/simple-require.js" data-main="main"></script>
  </head>
  <body>
   <div class="container">
@@ -18,7 +18,7 @@
 	 <h3>本页效果实现过程</h3>
 	 <h4>html主要代码</h4>
 	 <pre>
-&lt;script src="js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;
+&lt;script src="js/simple-require.js" data-main="main"&gt;&lt;/script&gt;
 	 </pre>
 	 <h4>js/main.js主要代码</h4>
 	 <pre>
@@ -70,10 +70,10 @@ document.getElementById("testBtn").addEventListener("click",function(e){
 	 <p class="t_c"><button id="testBtn" style="width:10em;height:4em;">点击加载个模块</button></p>
 	 <h4><a href="other-path/test.html">在其它路径测试同样代码</a></h4>
 
-	 <p> 唯一改变的只是引入的simple-require.js路径</p>
-	 <pre>&lt;script src="js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;</pre>
+	 <p><span class="red">注意，html文件的路径已经深入一级，而javascript代码仍然一样（包括模板引用的路径）。</span> 唯一改变的只是引入的simple-require.js路径</p>
+	 <pre>&lt;script src="js/simple-require.js" data-main="main"&gt;&lt;/script&gt;</pre>
 	 改为
-	 <pre>&lt;script src="../js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;</pre>
+	 <pre>&lt;script src="../js/simple-require.js" data-main="main"&gt;&lt;/script&gt;</pre>
 	 
 	 <br /><br /><br />
   </div>
