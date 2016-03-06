@@ -14,16 +14,68 @@
   <div class="container">
      <h1>Simple-require.js</h1>
 	 <a href="index.html">返回首页</a>
-	 <br /><br /><br />
+	 <br /><br />
+	 <h3>本页效果实现过程</h3>
+	 <h4>html主要代码</h4>
+	 <pre>
+&lt;script src="js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;
+	 </pre>
+	 <h4>js/main.js主要代码</h4>
+	 <pre>
+	 //写一个公用的、加载模块的loading效果，乱起个名就叫showbox吧。
+   var showbox={
+	   init:function(){
+		   var cover=document.createElement("div");
+		   cover.style.cssText="display:none;position:fixed;left:0;top:0;"+
+		           "width:100%;height:100%;z-index:999;box-sizing:border-box;padding-top:10em;"+
+				   "color:#FFF;text-align:center;background:rgba(0,0,0,.8);";
+		   cover.innerHTML="组件加载中...";
+		   document.body.appendChild(cover);
+		   this._cover=cover;
+	   },
+	   show:function(){
+		   if(!this._over)this.init();
+		   this._cover.style.display="block";
+	   },
+	   hide:function(){
+		   this._cover.style.display="none";
+	   }
+	};
+
+//配置
+require.config({
+     alias:{
+        "popup":"./plugins/popup.js"          //其实不配置也行，后面require全文件路径即可
+     },
+      beforeLoad:function(){
+          showbox.show();                     //模块加载前的效果
+          alert("加个alert以看到加载层...");  //这个是为了看到加载层，实际运用中用不上。
+      },
+      loaded:function(){
+         showbox.hide();                      //模块加载完后
+      }
+  }
+);
+
+//给按钮加事件，第一次点击会加载组件，第一次以后不会加载
+document.getElementById("testBtn").addEventListener("click",function(e){
+    e.preventDefault();
+
+	//加载popup组件，这写require("./plugins/popup.js")也是可以的。
+    require("popup",function(a){
+        a();
+    });
+});
+	 </pre>
 	 <p class="t_c"><button id="testBtn" style="width:10em;height:4em;">点击加载个模块</button></p>
-	 <h4>在其它路径测试同样代码</h4>
-	 <p>
-	  唯一改变的只是引入的simple-require.js路径，<br />
-	 &lt;script src="js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;<br />
-	 改为<br />
-	 &lt;script src="../js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;<br />
-	 <a href="other-path/test.html">在其它路径测试</a>
-	 </p>
+	 <h4><a href="other-path/test.html">在其它路径测试同样代码</a></h4>
+
+	 <p> 唯一改变的只是引入的simple-require.js路径</p>
+	 <pre>&lt;script src="js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;</pre>
+	 改为
+	 <pre>&lt;script src="../js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;</pre>
+	 
+	 <br /><br /><br />
   </div>
  </body>
 </html>

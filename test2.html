@@ -14,7 +14,45 @@
   <div class="container">
      <h1>Simple-require.js</h1>
 	 <a href="index.html">返回首页</a>
-	 <br /><br /><br />
+	 <br /><br />
+     <h4>模块bb.js</h4>
+	 其依赖于StringBuffer.js
+	 <pre>
+//define(依赖，别名,工厂);
+define("StringBuffer.js","sb",function(buffer){ 
+
+    //截取0-9前面的len位
+    function cut(len){
+        var str;
+         str=buffer("0123").append("456").append("78").append(9).toString();
+        return str.substring(0,len);
+    }    
+
+   return cut;
+});
+	 </pre>
+	  <h4>模块StringBuffer.js</h4>
+	  这StringBuffer是乱实现的，一时想不出写个什么插件，就乱写一个简单的了。
+	  <pre>
+define(function(){
+    function StringBuffer(s){
+        this.strs=[s];
+    }
+    StringBuffer.prototype.append=function(s){
+        this.strs.push(s);
+        return this;
+    };
+    StringBuffer.prototype.toString=function(){
+        return this.strs.join("");
+    };
+
+    function buffer(s){
+      return new StringBuffer(s);
+    }
+
+    return buffer;
+});
+	  </pre>
 	 <p class="t_c"><button id="testBtn" style="width:10em;height:4em;">点击加载个模块</button></p>
 	 <p>有依赖模块所返回结果：<span id="show"></span></p>
 	 

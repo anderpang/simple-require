@@ -24,10 +24,11 @@
 	 <h4>版本</h4>
 	 <p>0.0.1</p>
 	 <h4>使用</h4>
-	 <p>
-	   &lt;script src="js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;<br />
-       引用simple-require.js，绑定data-main即可
-	 </p>
+	 <pre>
+&lt;script src="js/simple-require.js" data-main="../js/main"&gt;&lt;/script&gt;
+     </pre>
+      引用simple-require.js，绑定data-main即可
+
 
 	 <h4>配置简单</h4>
 	 <pre>
@@ -53,9 +54,9 @@ require.config({
 	 </pre>
 	 <h4>说明</h4>
 	 <p>
-	    以simple-require.js所在目录为根目录，从而解决了javascript模块中目录引用出错的问题。（无需配置根目录）。
+	    <span class="red">以simple-require.js所在目录<span class="c-str">为根目录来引用模块</span></span>，从而解决经常遇到的javascript模块在不同目录的html文件引用中路径不一样的尴尬。（即：无需配置根目录，从simple-require.js所在位置出发即可）。
 	 </p>
-
+     <br /><br /><br />
   </div>
  </body>
 </html>
